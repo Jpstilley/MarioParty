@@ -1,16 +1,31 @@
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\bin\Debug\net5.0\MarioParty.exe
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\bin\Debug\net5.0\MarioParty.deps.json
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\bin\Debug\net5.0\MarioParty.runtimeconfig.json
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\bin\Debug\net5.0\MarioParty.runtimeconfig.dev.json
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\bin\Debug\net5.0\MarioParty.dll
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\bin\Debug\net5.0\ref\MarioParty.dll
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\bin\Debug\net5.0\MarioParty.pdb
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.csproj.AssemblyReference.cache
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.AssemblyInfoInputs.cache
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.AssemblyInfo.cs
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.csproj.CoreCompileInputs.cache
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.dll
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\ref\MarioParty.dll
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.pdb
-C:\Users\andre\Documents\Kata Work\MarioParty\MarioParty\obj\Debug\net5.0\MarioParty.genruntimeconfig.cache
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.exe
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.deps.json
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.runtimeconfig.json
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.runtimeconfig.dev.json
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.dll
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/bin/Debug/net5.0/ref/MarioParty.dll
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.pdb
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.csproj.AssemblyReference.cache
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.AssemblyInfoInputs.cache
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.AssemblyInfo.cs
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.csproj.CoreCompileInputs.cache
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.dll
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/ref/MarioParty.dll
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.pdb
+C:/Users/andre/Documents/Kata Work/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.genruntimeconfig.cache
+/Users/Joey/repos/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.deps.json
+/Users/Joey/repos/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.runtimeconfig.json
+/Users/Joey/repos/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.runtimeconfig.dev.json
+/Users/Joey/repos/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.dll
+/Users/Joey/repos/MarioParty/MarioParty/bin/Debug/net5.0/ref/MarioParty.dll
+/Users/Joey/repos/MarioParty/MarioParty/bin/Debug/net5.0/MarioParty.pdb
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.csproj.AssemblyReference.cache
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.AssemblyInfoInputs.cache
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.AssemblyInfo.cs
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.csproj.CoreCompileInputs.cache
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.dll
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/ref/MarioParty.dll
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.pdb
+/Users/Joey/repos/MarioParty/MarioParty/obj/Debug/net5.0/MarioParty.genruntimeconfig.cache

@@ -6,14 +6,12 @@ namespace MarioParty
     {
         static void Main(string[] args)
         {
-            var gameBoard = new GameBoard();
-            var player = new Mario();
-            
-            player.Move();
-            gameBoard.AddOrSubtractCoins(player);
+            var newGame = new Game();
 
-            Console.WriteLine(player.NameOfCharacter + " moved to space " + player.PlaceOnBoard + ".");
-            Console.WriteLine(player.NameOfCharacter + " now has " + player.Coins + " coins.");
+
+            newGame.StartGame();
+            
+            
 
         }
     }

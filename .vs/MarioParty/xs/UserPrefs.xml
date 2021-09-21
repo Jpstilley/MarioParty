@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{EFAD7A0F-422B-403E-8429-485DA539FEE6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarioParty/Game/Items.cs">
+    <Files>
+      <File FileName="MarioParty/Program.cs" Line="15" Column="13" />
+      <File FileName="MarioParty/Characters/ICharacters.cs" Line="11" Column="9" />
+      <File FileName="MarioParty/Characters/Toad.cs" Line="62" Column="29" />
+      <File FileName="MarioParty/Characters/Mario.cs" Line="55" Column="17" />
+      <File FileName="MarioParty/Characters/Bowser.cs" Line="67" Column="1" />
+      <File FileName="MarioParty/Characters/Peach.cs" Line="55" Column="14" />
+      <File FileName="MarioParty/Game/Game.cs" Line="25" Column="23" />
+      <File FileName="MarioParty/Game/GameBoard.cs" Line="33" Column="10" />
+      <File FileName="MarioParty/Game/Items.cs" Line="9" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MarioParty" expanded="True">
+            <Node name="MarioParty" expanded="True">
+              <Node name="Characters" expanded="True" />
+              <Node name="Game" expanded="True">
+                <Node name="Items.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="MarioPartyTests" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="MarioParty" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MarioParty PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

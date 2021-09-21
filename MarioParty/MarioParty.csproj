@@ -5,4 +5,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Characters\" />
+    <None Remove="Game\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Characters\" />
+    <Folder Include="Game\" />
+  </ItemGroup>
 </Project>
