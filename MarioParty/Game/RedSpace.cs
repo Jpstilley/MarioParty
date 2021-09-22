@@ -3,9 +3,10 @@ namespace MarioParty
 {
     public class RedSpace : ISpaces
     {
-        public void TakeAction(ICharacters character)
+        public void TakeAction(ICharacters player)
         {
-            character.Coins -= 2;
+            player.Coins -= 2;
+            Console.WriteLine($"Awe, too bad!{player.NameOfCharacter} lost 2 Coins!");
         }
     }
 }

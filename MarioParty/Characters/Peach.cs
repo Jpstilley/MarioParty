@@ -80,47 +80,21 @@ namespace MarioParty
             }
         }
 
-        public void Move(Game game)
+        public int Move(int starLocation, int gameboardLength)
         {
-            Random random = new();
             var dieRoll = RollDie();
-            if (PlaceOnBoard <= 5 && PlaceOnBoard + dieRoll >= 6)
-            {
-                ItemShop.GoShopping(this);
-            }
-            if (PlaceOnBoard <= game.StarLocation - 1 && PlaceOnBoard + dieRoll >= game.StarLocation)
-            {
-                StarShop.BuyAStar(this);
-                game.StarLocation = random.Next(0, game.GameBoard.Spaces.Length);
-            }
+            ItemShop.IsPastItemShop(this, dieRoll);
+            starLocation = StarShop.IsPastStarShop(this, dieRoll, starLocation, gameboardLength);
             PlaceOnBoard += dieRoll;
             Console.WriteLine($"\n{NameOfCharacter} moved {dieRoll} spaces!");
+            return starLocation;
         }
 
         public void UseItem(List<ICharacters> playerList)
         {
             if (PlayerItems.Count > 0)
             {
-                Console.WriteLine($"\n{NameOfCharacter}, which item would you like to use?");
-                int itemNumber = 1;
-                var tempNum = PlayerItems.Count + 1;
-                var max = tempNum.ToString();
-
-                foreach (var item in PlayerItems)
-                {
-                    Console.WriteLine($"{itemNumber}. {item}");
-                    itemNumber++;
-                }
-                Console.WriteLine($"{itemNumber}. Cancel");
-
-                var userResponse = Console.ReadLine();
-                Console.WriteLine();
-                if (userResponse != max && userResponse != "Cancel" && userResponse != "cancel")
-                {
-                    var chosenItem = int.Parse(userResponse) - 1;
-                    Items.ItemAction(PlayerItems[chosenItem], playerList, this);
-                    PlayerItems.Remove(PlayerItems[chosenItem]);
-                }
+                Items.ChooseItem(this, playerList);
             }
             else
             {

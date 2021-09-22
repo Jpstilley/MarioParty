@@ -11,30 +11,34 @@ namespace MarioParty
 
         public ISpaces[] Spaces { get; } =
             {
+                new RedSpace(),
+                new BlueSpace(),
+                new BlueSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new BlueSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
                 new BlueSpace(),
                 new RedSpace(),
                 new BlueSpace(),
                 new RedSpace(),
                 new BlueSpace(),
+                new BlueSpace(),
+                new BlueSpace(),
                 new RedSpace(),
+                new RedSpace(),
+                new BlueSpace(),
                 new BlueSpace(),
                 new RedSpace(),
                 new BlueSpace(),
-                new RedSpace(),
                 new BlueSpace(),
                 new RedSpace(),
                 new BlueSpace(),
-                new RedSpace(),
                 new BlueSpace(),
-                new RedSpace(),
-                new BlueSpace(),
-                new RedSpace(),
-                new BlueSpace(),
-                new RedSpace(),
-                new BlueSpace(),
-                new RedSpace(),
-                new BlueSpace(),
-                new RedSpace(),
             };
 
         public GameBoard()
@@ -44,7 +48,14 @@ namespace MarioParty
 
         public void SpaceAction(ICharacters character)
         {
-            Spaces[character.PlaceOnBoard - 1].TakeAction(character);
+            if (character.PlaceOnBoard - 1 >= 0)
+            {
+                Spaces[character.PlaceOnBoard - 1].TakeAction(character);
+            }
+            else
+            {
+                Spaces[0].TakeAction(character);
+            }
         }
     }
 }

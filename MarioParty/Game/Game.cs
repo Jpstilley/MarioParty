@@ -9,7 +9,7 @@ namespace MarioParty
     {
         public GameBoard GameBoard { get; set; }
         public List<ICharacters> Players { get; set; }
-        public int TotalSpaces { get; set; }
+        public int TotalSpaces { get; }
         public int CurrentPlayer { get; set; }
         public int Round { get; set; }
         public int StarLocation { get; set; }
@@ -17,16 +17,15 @@ namespace MarioParty
         public bool RoundEnded { get; set; }
         public bool IsStarted { get; set; }
 
-
-
         public Game()
         {
             GameBoard = new GameBoard();
-            TotalSpaces = GameBoard.Spaces.Length - 1;
+            TotalSpaces = GameBoard.Spaces.Length;
             Players = new List<ICharacters>();
             MaxRounds = RoundChoice();
             Round = 1;
             CurrentPlayer = 0;
+            StarLocation = new Random().Next(0, TotalSpaces);
         }
 
         public void StartGame()
@@ -71,15 +70,50 @@ namespace MarioParty
 
         public void CrownAWinner(List<ICharacters> players)
         {
-            var champion = players.Max(player => player.Stars);
-            Console.WriteLine($"And the winner is...............................\n...............................\n..................{champion}!");
-            Console.WriteLine($"Congratulations {champion}!!!");
+            ICharacters champion = new Mario();
+            //var champion = players.Max(player => player.Stars);
+            var i = 0;
+            var j = 1;
+            while (i < players.Count & j < players.Count)
+            {
+                if(players[i].Stars > players[j].Stars)
+                {
+                    champion = players[i];
+                    j++;
+                }
+                else if(players[i].Stars == players[j].Stars)
+                {
+                    if(players[i].Coins > players[j].Coins)
+                    {
+                        champion = players[i];
+                        j++;
+                    }
+                    else
+                    {
+                        champion = players[j];
+                        i++;
+                    }
+                }
+                else
+                {
+                    champion = players[j];
+                    i++;
+                }
+            }
+            Console.WriteLine("We just finished the final round!\nLet's tabulate everyone's total and crown a winner!!!!");
+            Console.WriteLine($"And the winner is............................................................................................." +
+                $"\n............................................................\n............................................................" +
+                $"\n............................................................\n...................................................{champion.NameOfCharacter}!");
+            Console.WriteLine($"{champion.NameOfCharacter} had {champion.Stars} Stars and {champion.Coins}!!");
+            Console.WriteLine($"Congratulations {champion.NameOfCharacter}!!!");
         }
 
         public void TakeTurn(ICharacters character)
         {
             character.TurnEnded = false;
             Console.WriteLine($"\nIt's your turn {character.NameOfCharacter}!");
+            Console.WriteLine($"{character.NameOfCharacter}, you currently have {character.Stars} Stars," +
+                              $" {character.Coins} Coins, and {character.PlayerItems.Count} items in your inventory.");
             while (!character.TurnEnded)
             {
                 Console.WriteLine($"\nWhat would you like to do {character.NameOfCharacter}?");
@@ -90,7 +124,7 @@ namespace MarioParty
                     case "Roll Die":
                     case "roll":
                     case "Roll":
-                        character.Move(this);
+                        StarLocation = character.Move(StarLocation, TotalSpaces);
                         IsPastGo(character);
                         GameBoard.SpaceAction(character);
                         character.TurnEnded = true;
@@ -102,7 +136,7 @@ namespace MarioParty
                     case "Item":
                     case "item":
                         character.UseItem(Players);
-                        character.Move(this);
+                        StarLocation = character.Move(StarLocation, TotalSpaces);
                         IsPastGo(character);
                         GameBoard.SpaceAction(character);
                         character.TurnEnded = true;
@@ -128,7 +162,7 @@ namespace MarioParty
         {
             var addPlayers = true;
             Players.Add(PlayerChoice());
-            while (addPlayers)
+            while (addPlayers || Players.Count < 2)
             {
                 if (Players.Count < 4)
                 {

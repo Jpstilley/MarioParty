@@ -3,14 +3,14 @@ namespace MarioParty
 {
     public static class ItemShop
     {
-       public static void GoShopping(ICharacters player)
+       internal static void GoShopping(ICharacters player)
         {
             var doneShopping = false;
 
-            Console.WriteLine($"Hey {player.NameOfCharacter}!\nWelcome to the Item Shop!");
+            Console.WriteLine($"\nHey {player.NameOfCharacter}, welcome to the Item Shop!");
             while (!doneShopping)
             {
-                Console.WriteLine("Please choose the number next to the option below you would like to choose...if you can afford it.");
+                Console.WriteLine("Please enter the number next to the option below you would like to choose...if you can afford it.");
                 Console.WriteLine("1. Mushroom - 3 Coins\n2. Super Mushroom - 5 Coins\n3. Poison Mushroom - 3 Coins\n4. Leave Item Shop");
                 int playerChoice;
                 if (int.TryParse(Console.ReadLine(), out playerChoice))
@@ -64,6 +64,13 @@ namespace MarioParty
                 }
             }
             
+        }
+       public static void IsPastItemShop(ICharacters player, int dieRoll)
+        {
+            if (player.PlaceOnBoard <= 9 && player.PlaceOnBoard + dieRoll >= 10 || player.PlaceOnBoard <= 19 && player.PlaceOnBoard + dieRoll >= 20)
+            {
+                GoShopping(player);
+            }
         }
     }
 }

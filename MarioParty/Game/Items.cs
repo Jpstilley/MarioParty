@@ -6,6 +6,30 @@ namespace MarioParty
 {
     public static class Items
     {
+        public static void ChooseItem(ICharacters player, List<ICharacters> characters)
+        {
+            Console.WriteLine($"\n{player.NameOfCharacter}, which item would you like to use?");
+            int itemNumber = 1;
+            var tempNum = player.PlayerItems.Count + 1;
+            var max = tempNum.ToString();
+
+            foreach (var item in player.PlayerItems)
+            {
+                Console.WriteLine($"{itemNumber}. {item}");
+                itemNumber++;
+            }
+            Console.WriteLine($"{itemNumber}. Cancel");
+
+            var userResponse = Console.ReadLine();
+            Console.WriteLine();
+            if (userResponse != max && userResponse != "Cancel" && userResponse != "cancel")
+            {
+                var chosenItem = int.Parse(userResponse) - 1;
+                Items.ItemAction(player.PlayerItems[chosenItem], characters, player);
+                player.PlayerItems.Remove(player.PlayerItems[chosenItem]);
+            }
+        }
+
         public static void ItemAction(string item, List<ICharacters> playerList, ICharacters player)
         {
             switch (item)
@@ -31,7 +55,7 @@ namespace MarioParty
         public static void SuperShroomTakesEffect(ICharacters character)
         {
             character.MoveModifier = 5;
-            Console.WriteLine($"\n{character.NameOfCharacter} used a Mushroom.\n{character.NameOfCharacter} will have +5 added to their next die roll.");
+            Console.WriteLine($"\n{character.NameOfCharacter} used a Super Mushroom!\n{character.NameOfCharacter} will have +5 added to their next die roll.");
         }
 
         public static void PoisonShroomTakesEffect(ICharacters character)
@@ -61,9 +85,25 @@ namespace MarioParty
                     case 1:
                         return tempList[0];
                     case 2:
-                        return tempList[1];
+                        if (tempList.Count > 1)
+                        {
+                            return tempList[2];
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                            return ChooseVictim(item, characters, player);
+                        }
                     case 3:
-                        return tempList[2];
+                        if(tempList.Count > 2)
+                        {
+                            return tempList[2];
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                            return ChooseVictim(item, characters, player);
+                        }
                     default:
                         Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
                         return ChooseVictim(item, characters, player);

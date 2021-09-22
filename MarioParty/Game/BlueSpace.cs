@@ -3,9 +3,10 @@ namespace MarioParty
 {
     public class BlueSpace : ISpaces 
     {
-        public void TakeAction(ICharacters character)
+        public void TakeAction(ICharacters player)
         {
-            character.Coins += 2;
+            player.Coins += 2;
+            Console.WriteLine($"{player.NameOfCharacter} gained 2 Coins!");
         }
     }
 }

@@ -1,16 +1,20 @@
 ﻿<Properties StartupConfiguration="{EFAD7A0F-422B-403E-8429-485DA539FEE6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarioParty/Game/GameBoard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarioParty/Game/BlueSpace.cs">
     <Files>
-      <File FileName="MarioParty/Game/Game.cs" Line="132" Column="14" />
-      <File FileName="MarioParty/Game/Die.cs" Line="1" Column="1" />
-      <File FileName="MarioParty/StarShop.cs" Line="19" Column="39" />
-      <File FileName="MarioParty/Characters/Mario.cs" Line="78" Column="36" />
-      <File FileName="MarioParty/Characters/ICharacters.cs" Line="2" Column="1" />
-      <File FileName="MarioParty/Characters/Bowser.cs" Line="99" Column="1" />
-      <File FileName="MarioParty/Characters/Luigi.cs" Line="95" Column="1" />
-      <File FileName="MarioParty/Characters/Peach.cs" Line="92" Column="1" />
-      <File FileName="MarioParty/Game/Items.cs" Line="63" Column="28" />
-      <File FileName="MarioParty/Game/GameBoard.cs" Line="47" Column="1" />
+      <File FileName="MarioParty/Game/Game.cs" Line="80" Column="1" />
+      <File FileName="MarioParty/Game/Die.cs" />
+      <File FileName="MarioParty/Characters/Mario.cs" Line="80" Column="32" />
+      <File FileName="MarioParty/Characters/ICharacters.cs" Line="16" Column="62" />
+      <File FileName="MarioParty/Characters/Bowser.cs" Line="111" Column="10" />
+      <File FileName="MarioParty/Characters/Luigi.cs" Line="107" Column="10" />
+      <File FileName="MarioParty/Characters/Peach.cs" Line="104" Column="10" />
+      <File FileName="MarioParty/Game/Items.cs" Line="7" Column="30" />
+      <File FileName="MarioParty/Game/GameBoard.cs" Line="33" Column="33" />
+      <File FileName="MarioParty/GamePrinter.cs" Line="37" Column="16" />
+      <File FileName="MarioParty/Game/ItemShop.cs" Line="72" Column="36" />
+      <File FileName="MarioParty/Game/StarShop.cs" Line="36" Column="10" />
+      <File FileName="MarioParty/Game/BlueSpace.cs" Line="9" Column="74" />
+      <File FileName="MarioParty/Game/RedSpace.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +23,7 @@
             <Node name="MarioParty" expanded="True">
               <Node name="Characters" expanded="True" />
               <Node name="Game" expanded="True">
-                <Node name="GameBoard.cs" selected="True" />
+                <Node name="BlueSpace.cs" selected="True" />
               </Node>
             </Node>
           </Node>

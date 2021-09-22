@@ -13,8 +13,8 @@ namespace MarioParty
         public List<string> PlayerItems { get; set; }
         public List<string> Dice { get; }
 
-        void Move(Game game);
+        public int Move(int starLocation, int gameboardLength);
 
-        void UseItem(List<ICharacters> playerList);
+        public void UseItem(List<ICharacters> playerList);
     }
 }
