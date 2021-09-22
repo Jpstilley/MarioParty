@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -12,9 +12,11 @@ namespace MarioParty
         public int TotalSpaces { get; set; }
         public int CurrentPlayer { get; set; }
         public int Round { get; set; }
+        public int StarLocation { get; set; }
         public int MaxRounds { get; set; }
         public bool RoundEnded { get; set; }
         public bool IsStarted { get; set; }
+
 
 
         public Game()
@@ -35,6 +37,8 @@ namespace MarioParty
 
         internal int RoundChoice()
         {
+            Console.WriteLine("Welcome to Mario Party!!!!");
+            Console.WriteLine("The player who ends with the most stars wins the game.");
             Console.WriteLine("How many rounds would you like to play?");
             Console.WriteLine($"5\n10\n15");
             int rounds = int.Parse(Console.ReadLine());
@@ -62,13 +66,14 @@ namespace MarioParty
                 Round++;
                 CurrentPlayer = 0;
             }
-            //CrownAWinner(Players);
+            CrownAWinner(Players);
         }
 
-        //TODO: Create a method crowning a winner to the game.
-        public void CrownAWinner(List<ICharacters> Players)
+        public void CrownAWinner(List<ICharacters> players)
         {
-            throw new NotImplementedException();
+            var champion = players.Max(player => player.Stars);
+            Console.WriteLine($"And the winner is...............................\n...............................\n..................{champion}!");
+            Console.WriteLine($"Congratulations {champion}!!!");
         }
 
         public void TakeTurn(ICharacters character)
@@ -77,7 +82,7 @@ namespace MarioParty
             Console.WriteLine($"\nIt's your turn {character.NameOfCharacter}!");
             while (!character.TurnEnded)
             {
-                Console.WriteLine("What would you like to do?");
+                Console.WriteLine($"\nWhat would you like to do {character.NameOfCharacter}?");
                 Console.WriteLine("1. Roll Die\n2. Use Item");
                 switch (Console.ReadLine())
                 {
@@ -85,7 +90,7 @@ namespace MarioParty
                     case "Roll Die":
                     case "roll":
                     case "Roll":
-                        character.Move();
+                        character.Move(this);
                         IsPastGo(character);
                         GameBoard.SpaceAction(character);
                         character.TurnEnded = true;
@@ -96,10 +101,15 @@ namespace MarioParty
                     case "use item":
                     case "Item":
                     case "item":
-                        character.UseItem();
+                        character.UseItem(Players);
+                        character.Move(this);
+                        IsPastGo(character);
+                        GameBoard.SpaceAction(character);
+                        character.TurnEnded = true;
+                        CurrentPlayer++;
                         break;
                     default:
-                        Console.WriteLine($"\nYou did not pick one of the characters listed.\n Please try again.");
+                        Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
                         TakeTurn(character);
                         break;
                 }
@@ -113,18 +123,23 @@ namespace MarioParty
                 character.PlaceOnBoard -= TotalSpaces;
             }
         }
+
         public void AddPlayers()
         {
             var addPlayers = true;
-            while(addPlayers)
+            Players.Add(PlayerChoice());
+            while (addPlayers)
             {
-                Players.Add(PlayerChoice());
-                if (Players.Count < 2)
+                if (Players.Count < 4)
                 {
                     Console.WriteLine($"\nWould you like to add another player?");
-                    Regex regex = new Regex("^y?e?s");
+                    Regex regex = new Regex(@"^y");
                     string response = Console.ReadLine();
-                    addPlayers = (regex.IsMatch(response)) ? true : false;
+                    addPlayers = regex.IsMatch(response) ? true : false;
+                    if (regex.IsMatch(response))
+                    {
+                        Players.Add(PlayerChoice());
+                    }
                 }
                 else
                 {

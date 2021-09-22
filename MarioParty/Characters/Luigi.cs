@@ -10,7 +10,9 @@ namespace MarioParty
     {
         public string NameOfCharacter { get; } = "Luigi";
         public int Coins { get; set; }
+        public int Stars { get; set; }
         public int PlaceOnBoard { get; set; }
+        public int MoveModifier { get; set; }
         public bool TurnEnded { get; set; }
         public List<string> PlayerItems { get; set; }
         public List<string> Dice { get; }
@@ -20,6 +22,7 @@ namespace MarioParty
             PlayerItems = new List<string>();
             Dice = new List<string>();
             Coins = 10;
+            Stars = 0;
             PlaceOnBoard = 0;
             Dice.Add("Regular");
             Dice.Add("Luigi");
@@ -48,13 +51,15 @@ namespace MarioParty
                         break;
                 }
             }
-            Console.WriteLine($"\nYou have moved {dieRoll} spaces!");
+            dieRoll += MoveModifier;
+            dieRoll = (dieRoll > 0) ? dieRoll : 0;
+            MoveModifier = 0;
             return dieRoll;
         }
 
         public string ChooseDie()
         {
-            Console.WriteLine("\nPlease choose the die you would like to use below.");
+            Console.WriteLine($"\n{NameOfCharacter} please choose the die you would like to use below.");
             var dieNumber = 1;
             foreach (var die in Dice)
             {
@@ -78,30 +83,52 @@ namespace MarioParty
             }
         }
 
-        public void Move()
+        public void Move(Game game)
         {
-            PlaceOnBoard += RollDie();
+            Random random = new();
+            var dieRoll = RollDie();
+            if (PlaceOnBoard <= 5 && PlaceOnBoard + dieRoll >= 6)
+            {
+                ItemShop.GoShopping(this);
+            }
+            if (PlaceOnBoard <= game.StarLocation - 1 && PlaceOnBoard + dieRoll >= game.StarLocation)
+            {
+                StarShop.BuyAStar(this);
+                game.StarLocation = random.Next(0, game.GameBoard.Spaces.Length);
+            }
+            PlaceOnBoard += dieRoll;
+            Console.WriteLine($"\n{NameOfCharacter} moved {dieRoll} spaces!");
         }
 
-        public void UseItem()
+        public void UseItem(List<ICharacters> playerList)
         {
-            Console.WriteLine("\nWhich item would you like to use?");
-            int itemNumber = 1;
-            foreach (var item in PlayerItems)
+            if (PlayerItems.Count > 0)
             {
-                Console.WriteLine($"{itemNumber}. {item}");
+                Console.WriteLine($"\n{NameOfCharacter}, which item would you like to use?");
+                int itemNumber = 1;
+                var tempNum = PlayerItems.Count + 1;
+                var max = tempNum.ToString();
+
+                foreach (var item in PlayerItems)
+                {
+                    Console.WriteLine($"{itemNumber}. {item}");
+                    itemNumber++;
+                }
+                Console.WriteLine($"{itemNumber}. Cancel");
+
+                var userResponse = Console.ReadLine();
+                Console.WriteLine();
+                if (userResponse != max && userResponse != "Cancel" && userResponse != "cancel")
+                {
+                    var chosenItem = int.Parse(userResponse) - 1;
+                    Items.ItemAction(PlayerItems[chosenItem], playerList, this);
+                    PlayerItems.Remove(PlayerItems[chosenItem]);
+                }
             }
-
-            switch (Convert.ToInt32(Console.ReadLine()))
+            else
             {
-                case 1:
-                    throw new NotImplementedException();
-
-                case 2:
-                    throw new NotImplementedException();
-
-                case 3:
-                    throw new NotImplementedException();
+                Console.WriteLine("\nYou have no items in your inventory.");
+                return;
             }
         }
     }

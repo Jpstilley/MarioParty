@@ -17,17 +17,30 @@ namespace MarioParty
                 new RedSpace(),
                 new BlueSpace(),
                 new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
+                new BlueSpace(),
+                new RedSpace(),
             };
-    
 
         public GameBoard()
         {
            
         }
-
-        
-
-
 
         public void SpaceAction(ICharacters character)
         {

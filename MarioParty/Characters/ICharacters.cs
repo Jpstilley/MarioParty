@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MarioParty
 {
@@ -10,13 +6,15 @@ namespace MarioParty
     {
         string NameOfCharacter { get; }
         public int Coins { get; set; }
+        public int Stars { get; set; }
         public int PlaceOnBoard { get; set; }
+        public int MoveModifier { get; set; }
         public bool TurnEnded { get; set; }
         public List<string> PlayerItems { get; set; }
         public List<string> Dice { get; }
 
-        void Move();
+        void Move(Game game);
 
-        void UseItem();
+        void UseItem(List<ICharacters> playerList);
     }
 }
