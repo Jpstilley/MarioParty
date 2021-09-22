@@ -70,7 +70,9 @@ namespace MarioParty
                 case "Mario":
                     return "Mario";
                 default:
-                    Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                    Console.WriteLine("\nYou have made an invalid selection.\nPlease press any key to try again.");
+                    Console.ReadKey();
+                    Console.Clear();
                     return ChooseDie();
             }
         }

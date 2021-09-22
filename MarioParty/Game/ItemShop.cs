@@ -26,8 +26,10 @@ namespace MarioParty
                             }
                             else
                             {
-                                Console.WriteLine("Hey! What's the big idea?!!!\nYou can't afford that!!!/n");
-                                    break;
+                                Console.WriteLine("Hey! What's the big idea?!!!\nYou can't afford that!!!\n Press any key to return to the item shop.");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
                             }
                         case 2:
                             if (player.Coins >= 5)
@@ -38,7 +40,9 @@ namespace MarioParty
                             }
                             else
                             {
-                                Console.WriteLine("Hey! What's the big idea?!!!\nYou can't afford that!!!/n");
+                                Console.WriteLine("Hey! What's the big idea?!!!\nYou can't afford that!!!\n Press any key to return to the item shop.");
+                                Console.ReadKey();
+                                Console.Clear();
                                 break;
                             }
                         case 3:
@@ -50,7 +54,9 @@ namespace MarioParty
                             }
                             else
                             {
-                                Console.WriteLine("Hey! What's the big idea?!!!\nYou can't afford that!!!/n");
+                                Console.WriteLine("Hey! What's the big idea?!!!\nYou can't afford that!!!\n Press any key to return to the item shop.");
+                                Console.ReadKey();
+                                Console.Clear();
                                 break;
                             }
                         case 4:
@@ -59,8 +65,9 @@ namespace MarioParty
                 }
                 else
                 {
-                    Console.WriteLine("\nYou have made an invalid selection.\nPlease try again and enter the number this time!!!");
-                    
+                    Console.WriteLine("\nYou have made an invalid selection.\nPlease press any key to try again and enter the number this time!!!");
+                    Console.ReadKey();
+                    Console.Clear();
                 }
             }
             

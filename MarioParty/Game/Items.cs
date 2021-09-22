@@ -21,7 +21,7 @@ namespace MarioParty
             Console.WriteLine($"{itemNumber}. Cancel");
 
             var userResponse = Console.ReadLine();
-            Console.WriteLine();
+            Console.Clear();
             if (userResponse != max && userResponse != "Cancel" && userResponse != "cancel")
             {
                 var chosenItem = int.Parse(userResponse) - 1;
@@ -50,18 +50,27 @@ namespace MarioParty
         {
             character.MoveModifier = 3;
             Console.WriteLine($"\n{character.NameOfCharacter} used a Mushroom.\n{character.NameOfCharacter} will have +3 added to their next die roll.");
+            Console.WriteLine("\nPress any key to choose the die block you wish to roll!");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public static void SuperShroomTakesEffect(ICharacters character)
         {
             character.MoveModifier = 5;
             Console.WriteLine($"\n{character.NameOfCharacter} used a Super Mushroom!\n{character.NameOfCharacter} will have +5 added to their next die roll.");
+            Console.WriteLine("\nPress any key to choose the die block you wish to roll!");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public static void PoisonShroomTakesEffect(ICharacters character)
         {
             character.MoveModifier = -2;
             Console.WriteLine($"\n{character.NameOfCharacter} was hit by a Poison Mushroom.\n{character.NameOfCharacter} will have -2 subtracted from their next die roll.");
+            Console.WriteLine("\nPress any key to choose the die block you wish to roll!");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public static ICharacters ChooseVictim(string item, List<ICharacters> characters, ICharacters player)
@@ -83,35 +92,47 @@ namespace MarioParty
                 switch (number)
                 {
                     case 1:
+                        Console.Clear();
                         return tempList[0];
+                        
                     case 2:
                         if (tempList.Count > 1)
                         {
+                            Console.Clear();
                             return tempList[2];
                         }
                         else
                         {
-                            Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                            Console.WriteLine("\nYou have made an invalid selection.\nPlease press any key to try again.");
+                            Console.ReadKey();
+                            Console.Clear();
                             return ChooseVictim(item, characters, player);
                         }
                     case 3:
                         if(tempList.Count > 2)
                         {
+                            Console.Clear();
                             return tempList[2];
                         }
                         else
                         {
-                            Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                            Console.WriteLine("\nYou have made an invalid selection.\nPlease press any key to try again.");
+                            Console.ReadKey();
+                            Console.Clear();
                             return ChooseVictim(item, characters, player);
                         }
                     default:
-                        Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                        Console.WriteLine("\nYou have made an invalid selection.\nPlease press any key to try again.");
+                        Console.ReadKey();
+                        Console.Clear();
                         return ChooseVictim(item, characters, player);
                 }
             }
             else
             {
-                Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                Console.WriteLine("\nYou have made an invalid selection.\nPlease press any key to try again.");
+                Console.ReadKey();
+                Console.Clear();
                 return ChooseVictim(item, characters, player);
             }
         }

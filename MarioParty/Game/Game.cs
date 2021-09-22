@@ -36,9 +36,10 @@ namespace MarioParty
 
         internal int RoundChoice()
         {
+            Console.Clear();
             Console.WriteLine("Welcome to Mario Party!!!!");
             Console.WriteLine("The player who ends with the most stars wins the game.");
-            Console.WriteLine("How many rounds would you like to play?");
+            Console.WriteLine("\nHow many rounds would you like to play?");
             Console.WriteLine($"5\n10\n15");
             int rounds = int.Parse(Console.ReadLine());
             switch (rounds)
@@ -46,12 +47,15 @@ namespace MarioParty
                 case 5:
                 case 10:
                 case 15:
+                    Console.Clear();
                     return rounds;
+
                 default:
                     Console.WriteLine($"\nThat was an invalid response. Please try again.\n");
                     return (RoundChoice());
 
             }
+            
         }
 
         public void PlayGame()
@@ -70,6 +74,7 @@ namespace MarioParty
 
         public void CrownAWinner(List<ICharacters> players)
         {
+            Console.Clear();
             ICharacters champion = new Mario();
             //var champion = players.Max(player => player.Stars);
             var i = 0;
@@ -111,13 +116,14 @@ namespace MarioParty
         public void TakeTurn(ICharacters character)
         {
             character.TurnEnded = false;
-            Console.WriteLine($"\nIt's your turn {character.NameOfCharacter}!");
-            Console.WriteLine($"{character.NameOfCharacter}, you currently have {character.Stars} Stars," +
+            Console.WriteLine($"It's {character.NameOfCharacter}'s turn!");
+            Console.WriteLine($"\n{character.NameOfCharacter}, you currently have {character.Stars} Stars," +
                               $" {character.Coins} Coins, and {character.PlayerItems.Count} items in your inventory.");
             while (!character.TurnEnded)
             {
                 Console.WriteLine($"\nWhat would you like to do {character.NameOfCharacter}?");
                 Console.WriteLine("1. Roll Die\n2. Use Item");
+                Console.Clear();
                 switch (Console.ReadLine())
                 {
                     case "1":
@@ -143,11 +149,14 @@ namespace MarioParty
                         CurrentPlayer++;
                         break;
                     default:
-                        Console.WriteLine("\nYou have made an invalid selection.\nPlease try again.");
+                        Console.WriteLine("\nYou have made an invalid selection.\nPlease press any key to try again.");
+                        Console.ReadKey();
+                        Console.Clear();
                         TakeTurn(character);
                         break;
                 }
             }
+            
         }
 
         public void IsPastGo(ICharacters character)
@@ -161,7 +170,9 @@ namespace MarioParty
         public void AddPlayers()
         {
             var addPlayers = true;
-            Players.Add(PlayerChoice());
+            var playerNum = 1;
+            Players.Add(PlayerChoice(playerNum));
+            playerNum++;
             while (addPlayers || Players.Count < 2)
             {
                 if (Players.Count < 4)
@@ -169,10 +180,12 @@ namespace MarioParty
                     Console.WriteLine($"\nWould you like to add another player?");
                     Regex regex = new Regex(@"^y");
                     string response = Console.ReadLine();
+                    Console.Clear();
                     addPlayers = regex.IsMatch(response) ? true : false;
                     if (regex.IsMatch(response))
                     {
-                        Players.Add(PlayerChoice());
+                        Players.Add(PlayerChoice(playerNum));
+                        playerNum++;
                     }
                 }
                 else
@@ -180,12 +193,16 @@ namespace MarioParty
                     addPlayers = false;
                 }
 
-            } 
+            }
+            Console.Clear();
+            Console.WriteLine("Now that we've got all of our players, press any key to start the game.");
+            Console.ReadKey();
+            Console.Clear();
         }
 
-        public ICharacters PlayerChoice()
+        public ICharacters PlayerChoice(int playerNum)
         {
-            Console.WriteLine($"\nWhich character would you like to play as?");
+            Console.WriteLine($"Player {playerNum}, which character would you like to play as?");
             Console.WriteLine($"1. Mario\n2. Princess Peach\n3. Bowser\n4. Luigi");
             var playerchoice = Console.ReadLine();
             switch (playerchoice)
@@ -209,8 +226,10 @@ namespace MarioParty
                 case "Luigi":
                     return new Luigi();
                 default:
-                    Console.WriteLine($"\nYou did not pick one of the characters listed.\n Please try again.");
-                    return PlayerChoice();
+                    Console.WriteLine($"\nYou did not pick one of the characters listed.\n Please press any key to try again.");
+                    Console.ReadKey();
+                    Console.Clear();
+                    return PlayerChoice(playerNum);
             }
         }
     }
